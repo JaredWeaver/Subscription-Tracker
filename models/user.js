@@ -42,8 +42,16 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
+  // Michel: join 1 user can have Many Subscription
   User.associate = function (models) {
-    User.hasMany(models.Example, {
+    User.hasMany(models.Subscription, {
+      onDelete: 'cascade'
+    });
+  };
+
+  // Michel: join 1 user can have 1 Setting
+  User.associate = function (models) {
+    User.hasOne(models.Setting, {
       onDelete: 'cascade'
     });
   };
