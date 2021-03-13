@@ -1,8 +1,8 @@
 // Michel: Creating table Subscription
 module.exports = function (sequelize, DataTypes) {
-  const Subscription = sequelize.define('Example', {
+  const Subscription = sequelize.define('Subscription', {
     name: DataTypes.STRING,
-    amount: DataTypes.NUMBER,
+    amount: DataTypes.FLOAT,
     due: DataTypes.DATE
   });
 
