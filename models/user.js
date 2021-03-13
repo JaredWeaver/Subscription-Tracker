@@ -43,18 +43,18 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   // Michel: join 1 user can have Many Subscription
-  User.associate = function (models) {
-    User.hasMany(models.Subscription, {
-      onDelete: 'cascade'
-    });
-  };
+  // User.associate = function (models) {
+  //   User.hasMany(models.Subscription, {
+  //     onDelete: 'cascade'
+  //   });
+  // };
 
-  // Michel: join 1 user can have 1 Setting
-  User.associate = function (models) {
-    User.hasOne(models.Setting, {
-      onDelete: 'cascade'
-    });
-  };
+  // // Michel: join 1 user can have 1 Setting
+  // User.associate = function (models) {
+  //   User.hasOne(models.Setting, {
+  //     onDelete: 'cascade'
+  //   });
+  // };
 
   // This will check if an unhashed password can be compared to the hashed password stored in our database
   User.prototype.validPassword = function (password) {

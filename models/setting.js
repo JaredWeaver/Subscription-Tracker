@@ -1,6 +1,6 @@
 // Michel: Creating table Setting
 module.exports = function (sequelize, DataTypes) {
-  const Setting = sequelize.define('Example', {
+  const Setting = sequelize.define('Setting', {
     ncolor: DataTypes.STRING,
   });
 
