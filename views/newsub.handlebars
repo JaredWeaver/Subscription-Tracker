@@ -1,0 +1,52 @@
+{{> nav/nav-block user=true register=false}}
+
+<div class="container">
+  <div class="row">
+    <div class="col col-md-12">
+      <header class="create-user-wrap header-wrap" align="center">
+        <h1>Enter a new subscription</h1>
+        <h3 id="create-err-msg"></h3>
+      </header>
+
+      <h3 id="err-msg"></h3>
+
+      <form id= "create-form">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputSub">Service Name</label>
+            <input type="text" class="form-control" id="inputSub" placeholder="Netflix">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputDate">Select subscription date</label>
+            <br>
+            <input type="date" id="inputDate" value="2021-01-01">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputPrice">Price</label>
+            <input type="number" class="form-control" id="inputPrice" placeholder="14.99">
+          </div>
+        </div>
+
+        <div>
+          <h2 id="message"></h2>
+        </div>
+
+        <button type="submit" id="add-sub" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/newsub.js"></script>
+
+{{> modal/login-block}}
+
+<script>
+  var userId = {{userInfo.id}};
+</script>

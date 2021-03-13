@@ -7,8 +7,8 @@ module.exports = function (db) {
       });
     },
     // Create a new example
-    createExample: function (req, res) {
-      db.Example.create(req.body).then(function (dbExample) {
+    createSub: function (req, res) {
+      db.Subscription.create(req.body).then(function (dbExample) {
         res.json(dbExample);
       });
     },
@@ -16,6 +16,11 @@ module.exports = function (db) {
     deleteExample: function (req, res) {
       db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
         res.json(dbExample);
+      });
+    },
+    getSubscriptions: function (req, res) {
+      db.Subscription.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbExamples) {
+        res.json(dbExamples);
       });
     }
   };
