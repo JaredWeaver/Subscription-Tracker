@@ -10,6 +10,14 @@ module.exports = (db) => {
     }
   });
 
+  router.get('/newsub', (req, res) => {
+    if (req.isAuthenticated()) {
+      res.render('newsub');
+    } else {
+      res.render('register');
+    }
+  });
+
   // Load profile page
   router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {
@@ -59,7 +67,7 @@ module.exports = (db) => {
   // Load example index page
   router.get('/example', function (req, res) {
     if (req.isAuthenticated()) {
-      db.Example.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbExamples) {
+      db.Subscription.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbExamples) {
         res.render('example', {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated(),
