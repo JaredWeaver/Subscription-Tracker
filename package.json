@@ -7,7 +7,8 @@
     "start": "node server.js",
     "lint": "eslint . --ext .js --quiet",
     "fix": "eslint --fix .",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "build": "postcss public/assets/css/style.css -o public/assets/css/tailwind.css"
   },
   "repository": {
     "type": "git",
@@ -50,9 +51,11 @@
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "postcss-cli": "^8.3.1",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
+    "autoprefixer": "^10.2.5",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.22.0",
@@ -60,6 +63,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
-    "prettier": "^2.1.2"
+    "postcss": "^8.2.8",
+    "prettier": "^2.1.2",
+    "tailwindcss": "^2.0.3"
   }
 }
