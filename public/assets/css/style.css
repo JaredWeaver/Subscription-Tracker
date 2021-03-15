@@ -1,7 +1,9 @@
+
 body {
-  color: white;
+  color:white;
   background-size: cover;
-  height:100%
+  height:100%;
+  font-family:'Josefin Sans', sans-serif; 
 }
 
 .jumbotron {
@@ -72,3 +74,7 @@ hr {
 .card-body {
   color: #444;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

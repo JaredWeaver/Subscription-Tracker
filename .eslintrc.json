@@ -38,6 +38,7 @@
     "comma-spacing": ["error", { "before": false, "after": true }],
     "comma-style": ["error", "last"],
     "constructor-super": "error",
+    "css.lint.unknownAtRules": "ignore",
     "curly": ["error", "multi-line"],
     "dot-location": ["error", "property"],
     "eol-last": "error",
