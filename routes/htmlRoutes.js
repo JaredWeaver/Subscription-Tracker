@@ -10,9 +10,20 @@ module.exports = (db) => {
     }
   });
 
+  // Duy: Loads form to add a new subscription
   router.get('/newsub', (req, res) => {
     if (req.isAuthenticated()) {
-      res.render('newsub');
+      db.User.findOne({
+        where: {
+          id: req.session.passport.user.id
+        }
+      }).then(() => {
+        const user = {
+          userInfo: req.session.passport.user,
+          isloggedin: req.isAuthenticated()
+        };
+        res.render('newsub', user);
+      });
     } else {
       res.render('register');
     }

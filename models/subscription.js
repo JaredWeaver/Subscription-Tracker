@@ -15,14 +15,15 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
-  // Michel: Subscription belongs to Setting, this allow to join with the user ID to get user color
-  Subscription.associate = function (models) {
-    Subscription.belongsTo(models.Setting, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Duy: Commented out for now, (unsure if we'll keep using this)
+  // // Michel: Subscription belongs to Setting, this allow to join with the user ID to get user color
+  // Subscription.associate = function (models) {
+  //   Subscription.belongsTo(models.Setting, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
   return Subscription;
 };
