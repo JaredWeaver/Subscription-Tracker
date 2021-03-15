@@ -1,3 +1,4 @@
+// Duy: Add subscription button that takes info about the user's subscription
 $('#add-sub').on('click', function (event) {
   event.preventDefault();
 
