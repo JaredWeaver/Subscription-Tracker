@@ -4,13 +4,16 @@ $('#add-sub').on('click', function (event) {
   const newSub = {
     name: $('#inputSub').val().trim(),
     due: $('#inputDate').val(),
-    amount: $('#inputPrice').val().trim()
+    amount: $('#inputPrice').val().trim(),
+    UserId: window.userId
   };
+
+  console.log(newSub);
 
   if (newSub.name.length > 0 && newSub.amount.length > 0 && newSub.due.length > 0) {
     $.ajax({
       type: 'POST',
-      url: '/api/register',
+      url: '/api/newsub',
       data: newSub
     });
   } else {
