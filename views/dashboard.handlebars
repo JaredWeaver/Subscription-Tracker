@@ -7,6 +7,7 @@
     <div>
       {{#if isloggedin}}
         You are logged in as {{user.firstName}}
+        <div id='calendar'></div>
         <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
       {{else}}
         <p>You need to log in to use this app.</p>

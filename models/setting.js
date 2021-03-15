@@ -1,7 +1,7 @@
 // Michel: Creating table Setting
 module.exports = function (sequelize, DataTypes) {
   const Setting = sequelize.define('Setting', {
-    ncolor: DataTypes.STRING
+    ncolor: DataTypes.STRING,
   });
 
   // Michel: Setting belongs to User, this allow to join with the user ID to get user name
