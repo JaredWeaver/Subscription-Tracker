@@ -1,22 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
+  var today = new Date();
+
   var calendar = new FullCalendar.Calendar(calendarEl, {
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+      right: 'dayGridMonth,listMonth'
     },
-    initialDate: '2020-09-12',
+    initialDate: today,
     navLinks: true, // can click day/week names to navigate views
     businessHours: true, // display business hours
     editable: true,
     selectable: true,
     events: [
       {
-        title: 'Business Lunch',
-        start: '2020-09-03T13:00:00',
-        constraint: 'businessHours'
+        title: 'Netflix',
+        start: '2021-03-20',
+        constraint: '13.99'
       },
       {
         title: 'Meeting',
