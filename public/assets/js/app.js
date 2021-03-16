@@ -3,6 +3,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var today = new Date();
 
+  $.ajax({
+    method: 'GET',
+    url: '/api/subs'
+  }).then(result => {
+    console.log(result);
+  });
+
   var calendar = new FullCalendar.Calendar(calendarEl, {
     headerToolbar: {
       left: 'prev,next today',

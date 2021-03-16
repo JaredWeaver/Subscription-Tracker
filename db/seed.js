@@ -13,10 +13,17 @@ module.exports = (db) => {
       password: process.env.USER_PWD,
       isAdmin: false
     }).then(() => {
-      db.Example.create({
-        text: 'Sample item',
-        description: 'Adam can\'t see this',
-        UserId: 2
+      db.Subscription.create({
+        name: 'Netfilx',
+        amount: 7.99,
+        due: '4/25/2021',
+        isAnnual: false,
+        user_Id: 2
+      }).then(() => {
+        db.Setting.create({
+          color: 'blue',
+          user_id: 2
+        })
       });
     });
   });
