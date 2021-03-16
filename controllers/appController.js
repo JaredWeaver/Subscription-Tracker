@@ -6,15 +6,15 @@ module.exports = function (db) {
         res.json(dbExamples);
       });
     },
-    // Create a new example
+    // Duy: Adds a subscription to the user's account
     createSub: function (req, res) {
       db.Subscription.create(req.body).then(function (dbExample) {
         res.json(dbExample);
       });
     },
-    // Delete an example by id
-    deleteExample: function (req, res) {
-      db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
+    // Duy: Deletes the subscripton from the user's account
+    deleteSubcription: function (req, res) {
+      db.Subscription.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
         res.json(dbExample);
       });
     },
