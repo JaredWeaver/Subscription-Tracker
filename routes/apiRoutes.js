@@ -15,8 +15,8 @@ module.exports = (passport, db) => {
 
   // App
   router.get('/subs', AppController.getSubscriptions);
-  router.delete('/examples/:id', AppController.deleteExample);
   router.post('/newsub', AppController.createSub);
+  router.delete('/subs/:id', AppController.deleteSubcription)
 
   return router;
 };

@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <td>\$${result[i].amount}</td>
     <td>${result[i].due}</td>
     <td>
-      <a href="#" class="mr-2"><i class="fas fa-pencil-alt"></i></a>
-      <a href="#"><i class="fas fa-trash"></i></a>
+      <a href="#" class="mr-2"><i class="fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
+      <a href="#"><i class="fas fa-trash" data-id="${result[i].id}"></i></a>
     </td>
     </tr>`
     $("#userSubTable").append(tableRow);
@@ -90,10 +90,22 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     ]
   });
-console.log('cal open');
+  console.log('cal open');
   calendar.render();
 });
 
+// Duy: Delete button that removes selected subscription from user account
+$('table').on('click', ".fa-trash", function (event) {
+  event.preventDefault();
+
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/subs/${$(this).attr('data-id')}`,
+    success: () => {
+      $(this).closest("tr").remove();
+    }
+  })
+});
 
 $('#add-user').on('click', function (event) {
   event.preventDefault();
