@@ -2,9 +2,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col col-md-12">
+    <div class="cop">
       <header class="create-user-wrap header-wrap" align="center">
-        <h1>Enter a new subscription</h1>
+        <h1>Enter a New Subscription</h1>
         <h3 id="create-err-msg"></h3>
       </header>
 
@@ -12,41 +12,41 @@
 
       <form id= "create-form">
         <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputSub">Service Name</label>
+          <div class="form-group">
+            <label for="inputSub">Subscription Name</label>
             <input type="text" class="form-control" id="inputSub" placeholder="Netflix">
           </div>
         </div>
 
         <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputDate">Select subscription date</label>
+          <div class="form-group">
+            <label for="inputDate">Subscription Due Date</label>
             <br>
-            <input type="date" id="inputDate" value="2021-01-01">
+            <input class="text-black" type="date" id="inputDate" value="2021-01-01">
           </div>
         </div>
 
         <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputPrice">Price</label>
+          <div class="form-group">
+            <label for="inputPrice">Subscription Fee</label>
             <input type="number" class="form-control" id="inputPrice" placeholder="14.99">
           </div>
         </div>
 
         <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputRenew">Select renewel period: </label>
+          <div class="form-group">
+            <label for="inputRenew">How often are you charged for this subscription?</label>
             <br>
-            <select name="inputRenew" id="inputRenew">
-              <option value="1wk">1 Week</option>
-              <option value="2wk">2 Weeks</option>
-              <option value="1m">1 Month</option>
-              <option value="2m">2 Months</option>
-              <option value="3m">3 Months</option>
-              <option value="6m">6 Months</option>
-              <option value="1y">1 Year</option>
-              <option value="2y">2 Years</option>
-              <option value="3y">3 Years</option>
+            <select class="text-black" name="inputRenew" id="inputRenew">
+              <option value="1wk">Every Week</option>
+              <option value="2wk">Every 2 Weeks</option>
+              <option value="1m">Every Month</option>
+              <option value="2m">Every 2 Months</option>
+              <option value="3m">Every 3 Months</option>
+              <option value="6m">Every 6 Months</option>
+              <option value="1y">Every Year</option>
+              <option value="2y">Every 2 Years</option>
+              <option value="3y">Every 3 Years</option>
             </select>
           </div>
         </div>

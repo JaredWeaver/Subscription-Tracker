@@ -8,12 +8,34 @@
     <hr class="my-4">
     <div>
       {{#if isloggedin}}
-        You are logged in as {{user.firstName}}
-        <div id='calendar' class="bg-gray-800"></div>
-        <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
+      You are logged in as {{user.firstName}}
+
+      <div class="grid grid-rows-3 grid-flow-col gap-x-8">
+        <table
+          class="rounded-lg justify-center table row-span-3 col-span-1 border-collapse border bg-gray-900 border-white">
+          <thead class="text-yellow-600 text-lg">
+            <tr>
+              <th class="p-3">Name</th>
+              <th class="p-3">Cost</th>
+              <th class="p-3">Due Date</th>
+              <th class="p-3">Edit or Delete</th>
+            </tr>
+          </thead>
+          <tbody id="userSubTable" class="border-seperate border-white border">
+          </tbody>
+        </table>
+        <div id='calendar' class="bg-gray-800 col-span-4 row-span-3"></div>
+      </div>
+
+
+
+      <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
+      <br>
+      <a href="/newsub" class="mr-3 text-4xl">Add a new Subscription<i class="fas fa-plus ml-2"></i></a>
+
       {{else}}
-        <p class="text-base">New here?</p>
-        <p class="text-base">You need to log in to use this app.</p>
+      <p class="text-base">New here?</p>
+      <p class="text-base">You need to log in to use this app.</p>
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>

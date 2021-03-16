@@ -1,5 +1,9 @@
 // Duy: Add subscription button that takes info about the user's subscription
+document.getElementById('inputDate').valueAsDate = new Date();
+
 $('#add-sub').on('click', function (event) {
+
+  
   
   event.preventDefault();
 
@@ -20,6 +24,8 @@ $('#add-sub').on('click', function (event) {
       data: newSub
     });
     $('#create-err-msg').empty('');
+    // $('#create-form').empty('');
+    window.location.href = '/';
   } else {
     console.log('**Please fill out entire form**');
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
