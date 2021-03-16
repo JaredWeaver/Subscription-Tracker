@@ -3,7 +3,8 @@ module.exports = function (sequelize, DataTypes) {
   const Subscription = sequelize.define('Subscription', {
     name: DataTypes.STRING,
     amount: DataTypes.FLOAT,
-    due: DataTypes.DATE
+    due: DataTypes.DATE,
+    renew: DataTypes.STRING
   });
 
   // Michel: Subscription belongs to User, this allow to join with the user ID to get user name
