@@ -3,11 +3,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var today = new Date();
 
+  var userSubs = []
+
   $.ajax({
     method: 'GET',
     url: '/api/subs'
   }).then(result => {
     console.log(result);
+    for(var i = 0; i < result.length; i++) {
+    console.log(result[i].name)
+    var tableRow = `
+    <tr>
+    <td>${result[i].name}</td>
+    <td>\$${result[i].amount}</td>
+    <td>${result[i].due}</td>
+    <td>
+      <a href="#" class="mr-2"><i class="fas fa-pencil-alt"></i></a>
+      <a href="#"><i class="fas fa-trash"></i></a>
+    </td>
+    </tr>`
+    $("#userSubTable").append(tableRow);
+    }
   });
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -74,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     ]
   });
-
+console.log('cal open');
   calendar.render();
 });
 
