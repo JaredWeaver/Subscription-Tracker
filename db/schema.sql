@@ -1,2 +1,2 @@
-drop database if exists subscriptionTracker_dev;
-create database subscriptionTracker_dev;
+drop database if exists subscriptiontracker_dev;
+create database subscriptiontracker_dev;
