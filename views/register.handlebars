@@ -1,6 +1,6 @@
 {{> nav/nav-block user=false register=true}}
 
-<div class="container">
+{{!-- <div class="container">
   <div class="row">
     <div class="col col-md-12">
       <header class="create-user-wrap header-wrap" align="center">
@@ -36,6 +36,56 @@
           <div class="form-group col-md-12">
             <label for="inputPassword">Password</label>
             <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          </div>
+        </div>
+
+        <div>
+          <h2 id="message"></h2>
+        </div>
+
+        <button type="submit" id="add-user" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div> --}}
+
+<div class="container bg-gray-800 px-6 py-6">
+  <div class="row">
+    <div>
+      <header align="center">
+        <h1 class="text-4xl text-white py">Create Your Account</h1>
+        <h3 id="create-err-msg"></h3>
+        <p class="text-white">Already registered? <span class="text-indigo-700">Sign in</span></p>
+      </header>
+
+      <h3 id="err-msg"></h3>
+
+      <form id= "create-form" class="rounded-lg px-6 py-6 bg-white">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputFirst" class="block text-sm text-black">First Name</label>
+            <input type="text" class="form-control py-1" id="inputFirst" placeholder="John">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputLast" class="block text-sm text-black">Last Name</label>
+            <input type="text" class="form-control py-1" id="inputLast" placeholder="Doe">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputEmail" class="block text-sm text-black">Email</label>
+            <input type="email" class="form-control py-1" id="inputEmail" placeholder="Email">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputPassword" class="block text-sm text-black">Password</label>
+            <input type="password" class="form-control py-1" id="inputPassword" placeholder="Password">
           </div>
         </div>
 
