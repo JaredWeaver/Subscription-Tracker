@@ -19,21 +19,28 @@ document.addEventListener('DOMContentLoaded', function () {
       <tr>
       <td>${result[i].name}</td>
       <td>\$${result[i].amount}</td>
-      <td>${result[i].due}</td>
+      <td>${result[i].newDue}</td>
       <td>
-        <a href="#" class="mr-2"><i class="fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
-        <a href="#"><i class="fas fa-trash" data-id="${result[i].id}"></i></a>
+        <a href="#" class="mr-2"><i class="ml-auto fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
+        <a href="#"><i class="ml-auto fas fa-trash" data-id="${result[i].id}"></i></a>
       </td>
       </tr>`;
       $('#userSubTable').append(tableRow);
       //Michel: rendering the subscription in the calendar by assigning subscriptions to variable
-      oneSub['title'] = result[i].name;
-      oneSub['start'] = result[i].due.substring(0, 10);
-      oneSub['constraint'] = `${result[i].amount}`;
-      userSubs.push(oneSub);
-      console.log(`userSubs: ${i}`);
-      console.log(userSubs[i]);
+      // oneSub.title = result[i].name;
+      // oneSub.start = result[i].due.substring(0, 10);
+      // oneSub.constraint = `${result[i].amount}`;
+      // userSubs.push(oneSub);
+      // console.log(`userSubs: ${i}`);
+      // console.log(userSubs[i]);
     }
+    userSubs = result.map(subscription => {
+      return {
+          title : subscription.name + ' ' + subscription.renew,
+          start : subscription.due.substring(0, 10),
+          constraint : subscription.amount
+      }
+    });
     console.log(userSubs);
     // });
 
@@ -106,6 +113,12 @@ document.addEventListener('DOMContentLoaded', function () {
     calendar.render();
   });
 });
+
+//Jared- Need to add click event for the > arrow on the calendar. When clicked, increment the date + 1 to change the table to match the month shown
+$('.buttonIcon').on('click', function(){
+alert('next month')
+});
+
 // Duy: Delete button that removes selected subscription from user account
 $('table').on('click', '.fa-trash', function (event) {
   event.preventDefault();
