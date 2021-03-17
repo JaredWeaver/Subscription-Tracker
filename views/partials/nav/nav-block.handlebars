@@ -1,37 +1,39 @@
-<nav class="navbar navbar-expand-sm bg-gray-900 fixed-top p-5">
-  <!-- Brand/logo -->
-  <a class="navbar-brand" href="/">🗓️ <span class="text-4xl text-yellow-600">Subscription Tracker</span>
-  </a>
-  
-  <!-- Links -->
-  <ul class="nav navbar-nav ml-auto text-white">
+  <nav class="navbar navbar-expand-sm  md:justify-between flex-row bg-gray-900 fixed-top p-4">
+    <div class="flex flex-row justify-between">
+      <a class="navbar-brand pt-3" href="/"><span class="text-4xl text-yellow-600">Subscription Tracker</span>
+      </a>
 
-    {{!-- <li class="nav-item">
-      <a class="nav-link" href="/some-feature">Menu item here</a>
-    </li> --}}
+      <p id="hamburger" class="md:hidden"> <i class="fa fa-bars text-3xl text-white pt-3"></i></p>
 
-    {{#if isloggedin}}
-      <li class="nav-item">
-        <a class="nav-link" href="/example">Example page</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/profile">My Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/newsub">New Subscription</a>
-      </li>
-    {{else}}
-      <li class="nav-item">
-        <a class="nav-link" href="#" id="login-modal">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/register" data-register={{register}}>Register</a>
-      </li>
-    {{/if}}
-  </ul>
-</nav>
+      <ul class="text-white text-lg hidden md:flex md:flex-row pt-1" id="mobileView">
+        {{#if isloggedin}}
+        <li class="nav-item">
+         <button class="mr-4 bg-gray-800 hover:bg-yellow-800 text-yellow-600 font-semibold hover:text-white py-2 px-4 border border-yellow-600 hover:border-transparent rounded"><a class="nav-link" href="/example">Example page</a></button> 
+        </li>
+        <li class="nav-item">
+           <button class="mr-4 bg-gray-800 hover:bg-yellow-800 text-yellow-600 font-semibold hover:text-white py-2 px-4 border border-yellow-600 hover:border-transparent rounded">
+          <a class="nav-link" href="/profile">My Profile</a></button>
+        </li>
+        <li class="nav-item">
+           <button class="mr-4 bg-gray-800 hover:bg-yellow-800 text-yellow-600 font-semibold hover:text-white py-2 px-4 border border-yellow-600 hover:border-transparent rounded">
+          <a class="nav-link" href="/logout">Logout</a></button>
+        </li>
+        <li class="nav-item">
+           <button class="mr-4 bg-gray-800 hover:bg-yellow-800 text-yellow-600 font-semibold hover:text-white py-2 px-4 border border-yellow-600 hover:border-transparent rounded">
+          <a class="nav-link" href="/newsub">Add Subscription</a></button>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <button class="mr-4 bg-gray-800 hover:bg-yellow-800 text-yellow-600 font-semibold hover:text-white py-2 px-4 border border-yellow-600 hover:border-transparent rounded">
+          <a class="nav-link" href="#" id="login-modal">Login</a></button>
+        </li>
+        <li class="nav-item">
+           <button class="mr-4 bg-gray-800 hover:bg-yellow-800 text-yellow-600 font-semibold hover:text-white py-2 px-4 border border-yellow-600 hover:border-transparent rounded">
+          <a class="nav-link" href="/register" data-register={{register}}>Register</a></button>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
 
 {{> modal/login-block}}
