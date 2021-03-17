@@ -1,21 +1,20 @@
-var userSubs = []
+var userSubs = [];
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var calendarEl = document.getElementById('calendar');
 
   var today = new Date();
 
-
-  let oneSub={};
+  let oneSub = {};
 
   $.ajax({
     method: 'GET',
     url: '/api/subs'
-  }).then(result => {
+  }).then((result) => {
     console.log(result);
-    userSubs=[];
-    for(var i = 0; i < result.length; i++) {
-      console.log(result[i].name)
+    userSubs = [];
+    for (var i = 0; i < result.length; i++) {
+      console.log(result[i].name);
       var tableRow = `
       <tr>
       <td>${result[i].name}</td>
@@ -25,19 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
         <a href="#" class="mr-2"><i class="fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
         <a href="#"><i class="fas fa-trash" data-id="${result[i].id}"></i></a>
       </td>
-      </tr>`
-      $("#userSubTable").append(tableRow);
+      </tr>`;
+      $('#userSubTable').append(tableRow);
       //Michel: rendering the subscription in the calendar by assigning subscriptions to variable
-      oneSub['title']=result[i].name;
-      oneSub['start']=result[i].due.substring(0,10);
-      oneSub['constraint']=`${result[i].amount}`;
+      oneSub['title'] = result[i].name;
+      oneSub['start'] = result[i].due.substring(0, 10);
+      oneSub['constraint'] = `${result[i].amount}`;
       userSubs.push(oneSub);
       console.log(`userSubs: ${i}`);
       console.log(userSubs[i]);
-    };
+    }
     console.log(userSubs);
-  // });
-  
+    // });
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
       headerToolbar: {
         left: 'prev,next today',
@@ -51,56 +50,56 @@ document.addEventListener('DOMContentLoaded', function() {
       selectable: true,
       events: userSubs
       // [
-        // {
-        //   title: 'Netflix',
-        //   start: '2021-03-20',
-        //   constraint: '13.99'
-        // },
-        // {
-        //   title: 'Meeting',
-        //   start: '2020-09-13T11:00:00',
-        //   constraint: 'availableForMeeting', // defined below
-        //   color: '#257e4a'
-        // },
-        // {
-        //   title: 'Conference',
-        //   start: '2020-09-18',
-        //   end: '2020-09-20'
-        // },
-        // {
-        //   title: 'Party',
-        //   start: '2020-09-29T20:00:00'
-        // },
+      // {
+      //   title: 'Netflix',
+      //   start: '2021-03-20',
+      //   constraint: '13.99'
+      // },
+      // {
+      //   title: 'Meeting',
+      //   start: '2020-09-13T11:00:00',
+      //   constraint: 'availableForMeeting', // defined below
+      //   color: '#257e4a'
+      // },
+      // {
+      //   title: 'Conference',
+      //   start: '2020-09-18',
+      //   end: '2020-09-20'
+      // },
+      // {
+      //   title: 'Party',
+      //   start: '2020-09-29T20:00:00'
+      // },
 
-        // // areas where "Meeting" must be dropped
-        // {
-        //   groupId: 'availableForMeeting',
-        //   start: '2020-09-11T10:00:00',
-        //   end: '2020-09-11T16:00:00',
-        //   display: 'background'
-        // },
-        // {
-        //   groupId: 'availableForMeeting',
-        //   start: '2020-09-13T10:00:00',
-        //   end: '2020-09-13T16:00:00',
-        //   display: 'background'
-        // },
+      // // areas where "Meeting" must be dropped
+      // {
+      //   groupId: 'availableForMeeting',
+      //   start: '2020-09-11T10:00:00',
+      //   end: '2020-09-11T16:00:00',
+      //   display: 'background'
+      // },
+      // {
+      //   groupId: 'availableForMeeting',
+      //   start: '2020-09-13T10:00:00',
+      //   end: '2020-09-13T16:00:00',
+      //   display: 'background'
+      // },
 
-        // // red areas where no events can be dropped
-        // {
-        //   start: '2020-09-24',
-        //   end: '2020-09-28',
-        //   overlap: false,
-        //   display: 'background',
-        //   color: '#ff9f89'
-        // },
-        // {
-        //   start: '2020-09-06',
-        //   end: '2020-09-08',
-        //   overlap: false,
-        //   display: 'background',
-        //   color: '#ff9f89'
-        // }
+      // // red areas where no events can be dropped
+      // {
+      //   start: '2020-09-24',
+      //   end: '2020-09-28',
+      //   overlap: false,
+      //   display: 'background',
+      //   color: '#ff9f89'
+      // },
+      // {
+      //   start: '2020-09-06',
+      //   end: '2020-09-08',
+      //   overlap: false,
+      //   display: 'background',
+      //   color: '#ff9f89'
+      // }
       // ]
     });
     console.log('cal open');
@@ -108,16 +107,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 // Duy: Delete button that removes selected subscription from user account
-$('table').on('click', ".fa-trash", function (event) {
+$('table').on('click', '.fa-trash', function (event) {
   event.preventDefault();
 
   $.ajax({
     method: 'DELETE',
     url: `/api/subs/${$(this).attr('data-id')}`,
     success: () => {
-      $(this).closest("tr").remove();
+      $(this).closest('tr').remove();
     }
-  })
+  });
 });
 
 $('#add-user').on('click', function (event) {
@@ -130,7 +129,13 @@ $('#add-user').on('click', function (event) {
     password: $('#inputPassword').val().trim()
   };
 
-  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
+  if (
+    newAccount.password.length > 0 &&
+    newAccount.email.length > 0 &&
+    newAccount.password.length > 0 &&
+    newAccount.lastName.length > 0 &&
+    newAccount.firstName.length > 0
+  ) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
@@ -160,7 +165,13 @@ $('#update-user').on('click', function (event) {
   // $('#change-user-modal').modal('show');
   console.log(changeUser);
 
-  if (changeUser.password.length > 0 && changeUser.email.length > 0 && changeUser.password.length > 0 && changeUser.lastName.length > 0 && changeUser.firstName.length > 0) {
+  if (
+    changeUser.password.length > 0 &&
+    changeUser.email.length > 0 &&
+    changeUser.password.length > 0 &&
+    changeUser.lastName.length > 0 &&
+    changeUser.firstName.length > 0
+  ) {
     $.ajax({
       type: 'PUT',
       url: `/api/user/${id}`,
@@ -249,4 +260,15 @@ $('#login').on('click', function (event) {
       $('#user-info').modal('hide');
     }
   });
+});
+//Jared - added for responsive burger menu in nav
+let hamburger = document.getElementById('hamburger');
+
+let mobileMenu = document.getElementById('mobileView');
+
+hamburger.addEventListener('click', function () {
+  mobileMenu.classList.toggle('active');
+
+ $('#mobileView').removeClass('hidden');
+  
 });
