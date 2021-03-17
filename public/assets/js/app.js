@@ -1,99 +1,112 @@
+var userSubs = []
+
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
   var today = new Date();
 
-  var userSubs = []
+
+  let oneSub={};
 
   $.ajax({
     method: 'GET',
     url: '/api/subs'
   }).then(result => {
     console.log(result);
+    userSubs=[];
     for(var i = 0; i < result.length; i++) {
-    console.log(result[i].name)
-    var tableRow = `
-    <tr>
-    <td>${result[i].name}</td>
-    <td>\$${result[i].amount}</td>
-    <td>${result[i].due}</td>
-    <td>
-      <a href="#" class="mr-2"><i class="fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
-      <a href="#"><i class="fas fa-trash" data-id="${result[i].id}"></i></a>
-    </td>
-    </tr>`
-    $("#userSubTable").append(tableRow);
-    }
+      console.log(result[i].name)
+      var tableRow = `
+      <tr>
+      <td>${result[i].name}</td>
+      <td>\$${result[i].amount}</td>
+      <td>${result[i].due}</td>
+      <td>
+        <a href="#" class="mr-2"><i class="fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
+        <a href="#"><i class="fas fa-trash" data-id="${result[i].id}"></i></a>
+      </td>
+      </tr>`
+      $("#userSubTable").append(tableRow);
+      //Michel: rendering the subscription in the calendar by assigning subscriptions to variable
+      oneSub['title']=result[i].name;
+      oneSub['start']=result[i].due.substring(0,10);
+      oneSub['constraint']=`${result[i].amount}`;
+      userSubs.push(oneSub);
+      console.log(`userSubs: ${i}`);
+      console.log(userSubs[i]);
+    };
+    console.log(userSubs);
+  // });
+  
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,listMonth'
+      },
+      initialDate: today,
+      navLinks: true, // can click day/week names to navigate views
+      businessHours: true, // display business hours
+      editable: true,
+      selectable: true,
+      events: userSubs
+      // [
+        // {
+        //   title: 'Netflix',
+        //   start: '2021-03-20',
+        //   constraint: '13.99'
+        // },
+        // {
+        //   title: 'Meeting',
+        //   start: '2020-09-13T11:00:00',
+        //   constraint: 'availableForMeeting', // defined below
+        //   color: '#257e4a'
+        // },
+        // {
+        //   title: 'Conference',
+        //   start: '2020-09-18',
+        //   end: '2020-09-20'
+        // },
+        // {
+        //   title: 'Party',
+        //   start: '2020-09-29T20:00:00'
+        // },
+
+        // // areas where "Meeting" must be dropped
+        // {
+        //   groupId: 'availableForMeeting',
+        //   start: '2020-09-11T10:00:00',
+        //   end: '2020-09-11T16:00:00',
+        //   display: 'background'
+        // },
+        // {
+        //   groupId: 'availableForMeeting',
+        //   start: '2020-09-13T10:00:00',
+        //   end: '2020-09-13T16:00:00',
+        //   display: 'background'
+        // },
+
+        // // red areas where no events can be dropped
+        // {
+        //   start: '2020-09-24',
+        //   end: '2020-09-28',
+        //   overlap: false,
+        //   display: 'background',
+        //   color: '#ff9f89'
+        // },
+        // {
+        //   start: '2020-09-06',
+        //   end: '2020-09-08',
+        //   overlap: false,
+        //   display: 'background',
+        //   color: '#ff9f89'
+        // }
+      // ]
+    });
+    console.log('cal open');
+    calendar.render();
   });
-
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,listMonth'
-    },
-    initialDate: today,
-    navLinks: true, // can click day/week names to navigate views
-    businessHours: true, // display business hours
-    editable: true,
-    selectable: true,
-    events: [
-      {
-        title: 'Netflix',
-        start: '2021-03-20',
-        constraint: '13.99'
-      },
-      {
-        title: 'Meeting',
-        start: '2020-09-13T11:00:00',
-        constraint: 'availableForMeeting', // defined below
-        color: '#257e4a'
-      },
-      {
-        title: 'Conference',
-        start: '2020-09-18',
-        end: '2020-09-20'
-      },
-      {
-        title: 'Party',
-        start: '2020-09-29T20:00:00'
-      },
-
-      // areas where "Meeting" must be dropped
-      {
-        groupId: 'availableForMeeting',
-        start: '2020-09-11T10:00:00',
-        end: '2020-09-11T16:00:00',
-        display: 'background'
-      },
-      {
-        groupId: 'availableForMeeting',
-        start: '2020-09-13T10:00:00',
-        end: '2020-09-13T16:00:00',
-        display: 'background'
-      },
-
-      // red areas where no events can be dropped
-      {
-        start: '2020-09-24',
-        end: '2020-09-28',
-        overlap: false,
-        display: 'background',
-        color: '#ff9f89'
-      },
-      {
-        start: '2020-09-06',
-        end: '2020-09-08',
-        overlap: false,
-        display: 'background',
-        color: '#ff9f89'
-      }
-    ]
-  });
-  console.log('cal open');
-  calendar.render();
 });
-
 // Duy: Delete button that removes selected subscription from user account
 $('table').on('click', ".fa-trash", function (event) {
   event.preventDefault();
