@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var today = new Date();
 
   let oneSub = {};
+  var frequencyNum;
+  var frequencyName;
 
   $.ajax({
     method: 'GET',
@@ -15,11 +17,40 @@ document.addEventListener('DOMContentLoaded', function () {
     userSubs = [];
     for (var i = 0; i < result.length; i++) {
       console.log(result[i].name);
+
+      //Michel: adding the icon in the userTable
+      let myIcon;
+      switch (result[i].name.toLowerCase()) {
+        case 'netflix':
+          myIcon='/assets/images/netflixIcon.jpg';
+          break;
+        case 'disney+':
+          myIcon='/assets/images/disneyPlusIcon.jpg';
+          break;
+        case 'hulu':
+          myIcon='/assets/images/huluIcon.jpg';
+          break;
+        case 'prime':
+          myIcon='/assets/images/primeIcon.jpg';
+          break;
+        case 'costco':
+          myIcon='/assets/images/costcoIcon.jpg';
+          break;
+        default:
+          break;
+      }
+      const HTMLIcon=`<img src=${myIcon} width='20px' heigth='20px'>`;
+
+      //Michel: generating frequency variable to add to the user subscriptions table
+      //        and to the calendar rrule
+
       var tableRow = `
       <tr>
+      <td>${HTMLIcon}</td>
       <td>${result[i].name}</td>
       <td>\$${result[i].amount}</td>
       <td>${result[i].newDue}</td>
+      <td>${result[i].renew}</td>
       <td class="justify-content-center ml-4">
         <a href="#" class="mr-2"><i class="mr-auto fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
         <a href="#"><i class="mr-auto fas fa-trash" data-id="${result[i].id}"></i></a>
@@ -34,12 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
         constraint : subscription.amount,
         rrule: {
           dtstart : subscription.due.substring(0, 10),
-          freq: 'monthly'
+          freq: subscription.renew.substring(1,subscription.renew.length),
+          interval: parseInt(subscription.renew.charAt(0))
       }
     }
     });
   
-    console.log(userSubs);
+    console.log('usersubs',userSubs);
     // });
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
