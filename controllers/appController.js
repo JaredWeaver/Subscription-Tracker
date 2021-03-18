@@ -22,14 +22,15 @@ module.exports = function (db) {
     getSubscriptions: function (req, res) {
       db.Subscription.findAll({ where: { UserId: req.session.passport.user.id } }).then
             (function (dbExamples) {
-              console.log(dbExamples);
+              // console.log(dbExamples);
               dbExamples = dbExamples.map(Subscription => {
-                Subscription.dataValues.newDue = moment(Subscription.dataValues.due,'YYYY-MM-DD').format('MM-DD-YYYY');
-                console.log(Subscription.dataValues.newDue)
+                console.log('due',Subscription.dataValues.due)
+                Subscription.dataValues.newDue = moment(Subscription.dataValues.due).format('l');
+                console.log('newDue',Subscription.dataValues.newDue)
                 return Subscription
 
               });
-              console.log(dbExamples)
+              // console.log(dbExamples)
 
         res.json(dbExamples);
       });

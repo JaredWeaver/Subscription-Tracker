@@ -20,27 +20,25 @@ document.addEventListener('DOMContentLoaded', function () {
       <td>${result[i].name}</td>
       <td>\$${result[i].amount}</td>
       <td>${result[i].newDue}</td>
-      <td>
-        <a href="#" class="mr-2"><i class="ml-auto fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
-        <a href="#"><i class="ml-auto fas fa-trash" data-id="${result[i].id}"></i></a>
+      <td class="justify-content-center ml-4">
+        <a href="#" class="mr-2"><i class="mr-auto fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
+        <a href="#"><i class="mr-auto fas fa-trash" data-id="${result[i].id}"></i></a>
       </td>
       </tr>`;
       $('#userSubTable').append(tableRow);
-      //Michel: rendering the subscription in the calendar by assigning subscriptions to variable
-      // oneSub.title = result[i].name;
-      // oneSub.start = result[i].due.substring(0, 10);
-      // oneSub.constraint = `${result[i].amount}`;
-      // userSubs.push(oneSub);
-      // console.log(`userSubs: ${i}`);
-      // console.log(userSubs[i]);
+   
     }
     userSubs = result.map(subscription => {
       return {
-          title : subscription.name + ' ' + subscription.renew,
-          start : subscription.due.substring(0, 10),
-          constraint : subscription.amount
+        title : subscription.name,
+        constraint : subscription.amount,
+        rrule: {
+          dtstart : subscription.due.substring(0, 10),
+          freq: 'monthly'
       }
+    }
     });
+  
     console.log(userSubs);
     // });
 
@@ -161,7 +159,6 @@ $('#add-user').on('click', function (event) {
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
   }
 });
-
 $('#update-user').on('click', function (event) {
   event.preventDefault();
 

@@ -1,6 +1,6 @@
 {{> nav/nav-block}}
 
-<div id="main-container" class="container shadow-md bg-gray-800">
+<div id="main-container" class="container border border-black border-solid shadow-md bg-gradient-to-r  from-gray-800 via-yellow-600 to-gray-800">
   {{!-- <div class="text-center header-wrap" align="center">
     <p class="lead text-white"> Welcome to <span class="logotext text-white">Subscription Tracker</span></p>
     <p class="big-emoji">🗓️</p>
@@ -24,13 +24,14 @@
           <tbody id="userSubTable" class="border-seperate border-white border">
           </tbody>
         </table>
-        <div id='calendar' class="bg-gray-900 text-white col-span-6 row-span-3"></div>
+        <div id='calendar' class="bg-gray-900 text-white border border-white col-span-6 row-span-3"></div>
       </div>
-      <a href="/newsub" class="mr-3 text-2xl">Add a new Subscription<i class="fas fa-plus ml-2"></i></a>
-
       {{else}}
       <p class="text-base">New here?</p>
       <p class="text-base">You need to log in to use this app.</p>
+      <div class="text-5xl">HERE</div>
+      <div class="text-yellow-500"
+      <img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi1.wp.com%2Ftechweez.com%2Fwp-content%2Fuploads%2F2020%2F01%2Fstreaming-services.jpg%3Ffit%3D1200%252C628%26ssl%3D1">
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>
