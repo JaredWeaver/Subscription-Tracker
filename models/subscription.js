@@ -3,7 +3,7 @@ module.exports = function (sequelize, DataTypes) {
   const Subscription = sequelize.define('Subscription', {
     name: DataTypes.STRING,
     amount: DataTypes.FLOAT,
-    due: DataTypes.DATE,
+    due: DataTypes.DATEONLY,
     renew: DataTypes.STRING
   });
 
