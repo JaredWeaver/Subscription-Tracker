@@ -20,21 +20,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
       //Michel: adding the icon in the userTable
       let myIcon;
+      let myColor;
       switch (result[i].name.toLowerCase()) {
         case 'netflix':
           myIcon='/assets/images/netflixIcon.jpg';
+          myColor='red';
           break;
         case 'disney+':
           myIcon='/assets/images/disneyPlusIcon.jpg';
+          myColor='blue';
           break;
         case 'hulu':
           myIcon='/assets/images/huluIcon.jpg';
+          myColor='green';
           break;
         case 'prime':
           myIcon='/assets/images/primeIcon.jpg';
+          myColor='cyan';
           break;
         case 'costco':
           myIcon='/assets/images/costcoIcon.jpg';
+          myColor='pink';
           break;
         default:
           break;
@@ -56,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <a href="#"><i class="mr-auto fas fa-trash" data-id="${result[i].id}"></i></a>
       </td>
       </tr>`;
+      result[i]['color']=myColor;
       $('#userSubTable').append(tableRow);
    
     }
@@ -63,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return {
         title : subscription.name,
         constraint : subscription.amount,
+        color: subscription.color,
         rrule: {
           dtstart : subscription.due.substring(0, 10),
           freq: subscription.renew.substring(1,subscription.renew.length),
