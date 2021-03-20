@@ -1,6 +1,7 @@
-  <nav class="navbar navbar-expand-sm md:justify-between flex-row bg-gray-900 fixed-top p-4">
+
+  <nav class="navbar navbar-expand-sm  md:justify-between flex-row bg-gray-900 p-4">
     <div class="flex flex-row justify-between">
-      <a class="navbar-brand" href="/"><span class="text-4xl logo animate-pulse text-yellow-600">Subscription Tracker</span>
+      <a class="navbar-brand" href="/"><span class="text-4xl logo text-yellow-600">Subscription Tracker</span>
       </a>
 
       <p id="hamburger" class="md:hidden"> <i class="fa fa-bars text-3xl text-white pt-3"></i></p>
@@ -19,10 +20,10 @@
         </li>
         {{else}}
         <li class="nav-item">
-          <a class="nav-link" href="#" id="login-modal">Login</a>
+          <a class="nav-link" href="" id="login-modal">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/register" data-register={{register}}>Register</a>
+          <a class="nav-link" href="/register" id="login-modal">Register</a>
         </li>
         {{/if}}
       </ul>
