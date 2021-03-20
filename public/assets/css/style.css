@@ -52,10 +52,10 @@ body {
 }
 
 [data-useremail="true"] {
-  color: rgb(85, 30, 30) !important;
+  color: white !important;
 }
 [data-register="true"] {
-  color: rgb(85, 30, 30) !important;
+  color: white !important;
 }
 
 .lead {
