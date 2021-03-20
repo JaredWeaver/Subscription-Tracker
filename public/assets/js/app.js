@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <a href="#"><i class="mr-auto fas fa-trash" data-id="${result[i].id}"></i></a>
       </td>
       </tr>`;
-      //
+      
       result[i]['color']=myColor;
       $('#userSubTable').append(tableRow);
    
@@ -329,7 +329,9 @@ $('#edit-sub').on('click', function (event) {
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
   }
 });
+
 // ****************************************
+
 $('#register').on('click', function (event) {
   event.preventDefault();
   window.location.href = '/register';
