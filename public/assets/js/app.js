@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <tr>
       <td>${HTMLIcon}</td>
       <td>${result[i].name}</td>
-      <td>\$${result[i].amount}</td>
+      <td>\$${result[i].amount.toFixed(2)}</td>
       <td>${result[i].newDue}</td>
       <td>${renew(result[i].renew)}</td>
       <td class="justify-content-center ml-4">
