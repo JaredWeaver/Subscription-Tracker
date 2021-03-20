@@ -1,18 +1,14 @@
 
 body {
-  color: rgb(85, 30, 30);
+  color:white ;
   background-size: cover;
   height:100%;
   font-family:'Josefin Sans', sans-serif; 
 }
 
 .logo {
-  
   font-family: 'Bungee', cursive;
-
 }
-
-
 
 .active {
   display: block;
@@ -27,7 +23,7 @@ body {
 }
 
 .btn {
-  color:rgb(85, 30, 30);
+  color:white(85, 30, 30);
   background:#cadde1;
   border: 1px solid white;
 }
@@ -60,10 +56,10 @@ body {
 }
 
 [data-useremail="true"] {
-  color: rgb(85, 30, 30) !important;
+  color: white !important;
 }
 [data-register="true"] {
-  color: rgb(85, 30, 30) !important;
+  color: white !important;
 }
 
 .lead {
