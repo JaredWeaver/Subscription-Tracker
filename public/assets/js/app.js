@@ -180,6 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// Duy: Returns a cleaner recurring name for sub table
 const renew = (recurring) => {
   var renew;
   switch (recurring) {
