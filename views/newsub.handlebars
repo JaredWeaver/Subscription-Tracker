@@ -2,61 +2,72 @@
 
 <div class="container">
   <div class="row">
-    <div class="cop">
-      <header class="create-user-wrap header-wrap" align="center">
-        <h1>Enter a New Subscription</h1>
-        <h3 id="create-err-msg"></h3>
-      </header>
+    <div class="grid grid-cols-2 gap-1"
+      <div class="cop">
+        <header class="create-user-wrap header-wrap" align="center">
+          <h1>Enter a New Subscription</h1>
+          <h3 id="create-err-msg"></h3>
+        </header>
 
-      <h3 id="err-msg"></h3>
+        <h3 id="err-msg"></h3>
 
-      <form id= "create-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="inputSub">Subscription Name</label>
-            <input type="text" class="form-control" id="inputSub" placeholder="Netflix">
+        <form id= "create-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="inputSub">Subscription Name</label>
+              <input type="text" class="form-control" id="inputSub" placeholder="Netflix">
+            </div>
           </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="inputDate">Subscription Due Date</label>
-            <br>
-            <input class="text-black p-2 rounded" type="date" id="inputDate" value="2021-01-01">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="inputDate">Subscription Due Date</label>
+              <br>
+              <input class="text-black p-2 rounded" type="date" id="inputDate" value="2021-01-01">
+            </div>
           </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="inputPrice">Subscription Fee</label>
-            <input type="number" class="form-control" id="inputPrice" placeholder="14.99">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="inputPrice">Subscription Fee</label>
+              <input type="number" class="form-control" id="inputPrice" placeholder="14.99">
+            </div>
           </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="inputRenew">How often are you charged for this subscription?</label>
-            <br>
-            <select class="text-black p-2 rounded" name="inputRenew" id="inputRenew">
-              <option value="1weekly">Every Week</option>
-              <option value="2weekly">Every 2 Weeks</option>
-              <option value="1monthly">Every Month</option>
-              <option value="2monthly">Every 2 Months</option>
-              <option value="3monthly">Every 3 Months</option>
-              <option value="6monthly">Every 6 Months</option>
-              <option value="1yearly">Every Year</option>
-              <option value="2yearly">Every 2 Years</option>
-              <option value="3yearly">Every 3 Years</option>
-            </select>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="inputRenew">How often are you charged for this subscription?</label>
+              <br>
+              <select class="text-black p-2 rounded" name="inputRenew" id="inputRenew">
+                <option value="1weekly">Every Week</option>
+                <option value="2weekly">Every 2 Weeks</option>
+                <option value="1monthly">Every Month</option>
+                <option value="2monthly">Every 2 Months</option>
+                <option value="3monthly">Every 3 Months</option>
+                <option value="6monthly">Every 6 Months</option>
+                <option value="1yearly">Every Year</option>
+                <option value="2yearly">Every 2 Years</option>
+                <option value="3yearly">Every 3 Years</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <h2 id="message"></h2>
-        </div>
+          <div>
+            <h2 id="message"></h2>
+          </div>
 
-        <button type="submit" id="add-sub" class="btn btn-primary">Submit</button>
-      </form>
+          <button type="submit" id="add-sub" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      
+      <div class="grid-rows-2">
+        <div class="icone">
+
+        </div>
+        <div id="color">
+
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -83,6 +83,11 @@ hr {
   color: #444;
 }
 
+#color {
+  margin-top: 10px;
+  height: 150px;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
