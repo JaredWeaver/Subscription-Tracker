@@ -56,7 +56,9 @@
         <h1 class="text-4xl text-white py">Create Your Account</h1>
         <h3 id="create-err-msg"></h3>
         <p class="text-white">Already registered?</p>
-        <p class="text-indigo-700">Sign in</p>
+        <p class="nav-item">
+          <a class="nav-link text-lg login-modal" href="#">Login</a>
+        </p>
       </header>
 
       <h3 id="err-msg"></h3>
@@ -99,3 +101,5 @@
     </div>
   </div>
 </div>
+
+{{> modal/login-block}}
