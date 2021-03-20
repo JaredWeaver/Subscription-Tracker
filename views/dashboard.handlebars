@@ -10,9 +10,8 @@
       {{#if isloggedin}}
       You are logged in as {{user.firstName}}
 
-      <div class="grid grid-rows-3 grid-flow-col gap-x-10">
-        <table
-          class="rounded-lg justify-center table row-span-3 col-span-1 border-collapse border bg-gray-900 border-white">
+      <div class="grid grid-flow-col grid-rows-2 gap-x-5">
+        <table class="rounded-lg justify-center table lg:row-span-2 lg:col-span-1 sm:col-span-auto border-collapse border bg-gray-900 border-white md:flex-shrink-0">
           <thead class="text-yellow-600 text-lg">
             <tr>
               <th class="p-3"></th>
@@ -26,14 +25,14 @@
           <tbody id="userSubTable" class="border-seperate border-white border">
           </tbody>
         </table>
-        <div id='calendar' class="bg-gray-900 text-white border border-white col-span-6 row-span-3"></div>
+        <div id='calendar' class="bg-gray-900 text-white border border-white sm:col-span-auto lg:row-span-2 md:flex-shrink-0"></div>
       </div>
       {{else}}
       <p class="text-base">New here?</p>
       <p class="text-base">You need to log in to use this app.</p>
-      <div class="text-5xl">HERE</div>
-      <div class="text-yellow-500"
-      <img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi1.wp.com%2Ftechweez.com%2Fwp-content%2Fuploads%2F2020%2F01%2Fstreaming-services.jpg%3Ffit%3D1200%252C628%26ssl%3D1">
+      <div class="text-yellow-500">
+        <img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi1.wp.com%2Ftechweez.com%2Fwp-content%2Fuploads%2F2020%2F01%2Fstreaming-services.jpg%3Ffit%3D1200%252C628%26ssl%3D1">
+      </div>
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>
