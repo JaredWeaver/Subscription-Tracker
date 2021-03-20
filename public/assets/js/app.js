@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     for (var i = 0; i < result.length; i++) {
       console.log(result[i].name);
 
+      var HTMLIcon = '';
+
       //Michel: adding the icon in the userTable
       let myIcon;
       let myColor;
@@ -43,9 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
           myColor='pink';
           break;
         default:
+          myIcon='';
           break;
       }
-      const HTMLIcon=`<img src=${myIcon} width='20px' heigth='20px'>`;
+      if (myIcon !== '') {
+        HTMLIcon=`<img src=${myIcon} width='20px' heigth='20px'>`;
+      }
 
       //Michel: generating frequency variable to add to the user subscriptions table
       //        and to the calendar rrule
@@ -58,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <td>${result[i].newDue}</td>
       <td>${result[i].renew}</td>
       <td class="justify-content-center ml-4">
-        <a href="#" class="mr-2"><i class="mr-auto fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
+        <a href="/subs/${result[i].id}" class="mr-2"><i class="mr-auto fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
         <a href="#"><i class="mr-auto fas fa-trash" data-id="${result[i].id}"></i></a>
       </td>
       </tr>`;
@@ -160,12 +165,11 @@ alert('next month')
 // Duy: Delete button that removes selected subscription from user account
 $('table').on('click', '.fa-trash', function (event) {
   event.preventDefault();
-
   $.ajax({
     method: 'DELETE',
     url: `/api/subs/${$(this).attr('data-id')}`,
     success: () => {
-      $(this).closest('tr').remove();
+      location.reload();
     }
   });
 });
