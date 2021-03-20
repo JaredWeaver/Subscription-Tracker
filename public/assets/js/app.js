@@ -394,7 +394,7 @@ $('#register').on('click', function (event) {
   window.location.href = '/register';
 });
 
-$('#login-modal').on('click', function (event) {
+$('.login-modal').on('click', function (event) {
   event.preventDefault();
   $('#user-info').modal('show');
 });
