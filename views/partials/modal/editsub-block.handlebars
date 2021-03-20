@@ -1,0 +1,63 @@
+<div class="modal shadow-lg" id="sub-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header" align="center">
+            <h1>Edit your subscription</h1>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h3 id="create-err-msg"></h3>
+        </div>
+
+        <h3 id="err-msg"></h3>
+
+        <form id= "create-form">
+            <div class="form-row">
+            <div class="form-group">
+                <label for="inputSub">Subscription Name</label>
+                <input type="text" class="form-control" id="inputSub">
+            </div>
+            </div>
+
+            <div class="form-row">
+            <div class="form-group">
+                <label for="inputDate">Subscription Due Date</label>
+                <br>
+                <input class="text-black" type="date" id="inputDate">
+            </div>
+            </div>
+
+            <div class="form-row">
+            <div class="form-group">
+                <label for="inputPrice">Subscription Fee</label>
+                <input type="number" class="form-control" id="inputPrice">
+            </div>
+            </div>
+
+            <div class="form-row">
+            <div class="form-group">
+                <label for="inputRenew">How often are you charged for this subscription?</label>
+                <br>
+                <select class="text-black" name="inputRenew" id="inputRenew">
+                <option value="1weekly">Every Week</option>
+                <option value="2weekly">Every 2 Weeks</option>
+                <option value="1monthly">Every Month</option>
+                <option value="2monthly">Every 2 Months</option>
+                <option value="3monthly">Every 3 Months</option>
+                <option value="6monthly">Every 6 Months</option>
+                <option value="1yearly">Every Year</option>
+                <option value="2yearly">Every 2 Years</option>
+                <option value="3yearly">Every 3 Years</option>
+                </select>
+            </div>
+            </div>
+
+            <div>
+            <h2 id="message"></h2>
+            </div>
+
+            <button type="submit" id="edit-sub" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+  </div>
+</div>
