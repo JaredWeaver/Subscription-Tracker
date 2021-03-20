@@ -1,8 +1,8 @@
 <div class="modal shadow-lg" id="sub-modal" tabindex="-1">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content bg-gray-700 text-white">
         <div class="modal-header" align="center">
-            <h1>Edit your subscription</h1>
+            <h1>Edit Your Subscription</h1>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -21,9 +21,9 @@
 
             <div class="form-row">
             <div class="form-group">
-                <label for="inputDate">Subscription Due Date</label>
+                <label for="inputDate" class="">Subscription Due Date</label>
                 <br>
-                <input class="text-black" type="date" id="inputDate">
+                <input class="text-black rounded p-2" type="date" id="inputDate">
             </div>
             </div>
 
@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label for="inputRenew">How often are you charged for this subscription?</label>
                 <br>
-                <select class="text-black" name="inputRenew" id="inputRenew">
+                <select class="text-black p-2 rounded" name="inputRenew" id="inputRenew">
                 <option value="1weekly">Every Week</option>
                 <option value="2weekly">Every 2 Weeks</option>
                 <option value="1monthly">Every Month</option>
