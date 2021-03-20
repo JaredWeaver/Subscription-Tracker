@@ -19,8 +19,30 @@ module.exports = function (db) {
         res.json(dbExample);
       });
     },
+    // Duy: Gets a single sub
+    getOneSub: function (req, res) {
+      db.Subscription.findOne({ where: { id: req.params.id } }).then(function (dbExamples) {
+        res.json(dbExamples);
+      });
+    },
+    // Duy: Edits existing sub
+    updateSub: (req, res) => {
+      db.Subscription.update({
+        name: req.body.name,
+        amount: req.body.amount,
+        due: req.body.due,
+        renew: req.body.renew
+      }, {
+        where: { id: req.params.id }
+      }).then(result => {
+        res.json(result);
+      });
+    },
     getSubscriptions: function (req, res) {
-      db.Subscription.findAll({ where: { UserId: req.session.passport.user.id } }).then
+      db.Subscription.findAll({ 
+        where: { UserId: req.session.passport.user.id },
+        order: [['due', 'ASC']]
+      }).then
             (function (dbExamples) {
               // console.log(dbExamples);
               dbExamples = dbExamples.map(Subscription => {

@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     for (var i = 0; i < result.length; i++) {
       console.log(result[i].name);
 
+      var HTMLIcon = '';
+
       //Michel: adding the icon in the userTable
       let myIcon;
       let myColor;
@@ -43,9 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
           myColor='pink';
           break;
         default:
+          myIcon='';
           break;
       }
-      const HTMLIcon=`<img src=${myIcon} width='20px' heigth='20px'>`;
+      if (myIcon !== '') {
+        HTMLIcon=`<img src=${myIcon} width='20px' heigth='20px'>`;
+      }
 
       //Michel: generating frequency variable to add to the user subscriptions table
       //        and to the calendar rrule
@@ -62,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <a href="#"><i class="mr-auto fas fa-trash" data-id="${result[i].id}"></i></a>
       </td>
       </tr>`;
+      
       result[i]['color']=myColor;
       $('#userSubTable').append(tableRow);
    
@@ -160,12 +166,11 @@ alert('next month')
 // Duy: Delete button that removes selected subscription from user account
 $('table').on('click', '.fa-trash', function (event) {
   event.preventDefault();
-
   $.ajax({
     method: 'DELETE',
     url: `/api/subs/${$(this).attr('data-id')}`,
     success: () => {
-      $(this).closest('tr').remove();
+      location.reload();
     }
   });
 });
@@ -277,6 +282,55 @@ $('#confirm-delete').on('click', function (event) {
     $('#err-msg').empty('').text('fill out entire form');
   }
 });
+
+// PUT  ***********************
+
+// Duy: Opens up modal to edit selected sub
+$('table').on('click', '.fa-pencil-alt', function (event) {
+  event.preventDefault();
+
+  $.ajax({
+    method: 'GET',
+    url: `/api/subs/${$(this).attr('data-id')}`
+  }).then((result) => {
+    $('#inputSub').val(result.name);
+    $('#inputDate').val(result.due),
+    $('#inputPrice').val(result.amount),
+    $('#inputRenew').val(result.renew),
+    $('#edit-sub').attr('data-id', result.id);
+    $('#sub-modal').modal('show');
+  });
+});
+
+// Duy: Updates selected sub with new information
+$('#edit-sub').on('click', function (event) {
+  event.preventDefault();
+
+  const editSub = {
+    name: $('#inputSub').val().trim(),
+    due: $('#inputDate').val(),
+    amount: $('#inputPrice').val().trim(),
+    renew: $('#inputRenew').val(),
+  };
+
+  console.log(editSub);
+
+  if (editSub.name.length > 0 && editSub.amount.length > 0 && editSub.due.length > 0) {
+    $.ajax({
+      type: 'PUT',
+      url: `/api/subs/${$(this).data('id')}`,
+      data: editSub
+    });
+    $('#create-err-msg').empty('');
+    // $('#create-form').empty('');
+    window.location.href = '/';
+  } else {
+    console.log('**Please fill out entire form**');
+    $('#create-err-msg').empty('').text('**Please fill out entire form**');
+  }
+});
+
+// ****************************************
 
 $('#register').on('click', function (event) {
   event.preventDefault();

@@ -17,6 +17,8 @@ module.exports = (passport, db) => {
   router.get('/subs', AppController.getSubscriptions);
   router.post('/newsub', AppController.createSub);
   router.delete('/subs/:id', AppController.deleteSubcription)
+  router.get('/subs/:id', ensureAuthenticated, AppController.getOneSub);
+  router.put('/subs/:id', ensureAuthenticated, AppController.updateSub);
 
   return router;
 };
