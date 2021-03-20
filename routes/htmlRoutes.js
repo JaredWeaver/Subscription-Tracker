@@ -29,6 +29,21 @@ module.exports = (db) => {
     }
   });
 
+  // Duy: Load individual sub page to manage
+  router.get('/subs/:id', function (req, res) {
+    if (req.isAuthenticated()) {
+      db.Subscription.findOne({ where: { id: req.params.id }, raw: true }).then(function (dbExample) {
+        res.render('editsub', {
+          userInfo: req.session.passport.user,
+          isloggedin: req.isAuthenticated(),
+          example: dbExample
+        });
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+
   // Load profile page
   router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {

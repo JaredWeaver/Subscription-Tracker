@@ -1,0 +1,64 @@
+{{> nav/nav-block}}
+
+<div class="container">
+  <div class="row">
+    <div class="cop">
+      <header class="create-user-wrap header-wrap" align="center">
+        <h1>Edit your subscription</h1>
+        <h3 id="create-err-msg"></h3>
+      </header>
+
+      <h3 id="err-msg"></h3>
+
+      <form id= "create-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputSub">Subscription Name</label>
+            <input type="text" class="form-control" id="inputSub" value="{{example.name}}">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputDate">Subscription Due Date</label>
+            <br>
+            <input class="text-black" type="date" id="inputDate" value="{{example.due}}">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputPrice">Subscription Fee</label>
+            <input type="number" class="form-control" id="inputPrice" value="{{example.amount}}">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputRenew">How often are you charged for this subscription?</label>
+            <br>
+            <select class="text-black" name="inputRenew" id="inputRenew" value="{{example.renew}}">
+              <option value="1weekly">Every Week</option>
+              <option value="2weekly">Every 2 Weeks</option>
+              <option value="1monthly">Every Month</option>
+              <option value="2monthly">Every 2 Months</option>
+              <option value="3monthly">Every 3 Months</option>
+              <option value="6monthly">Every 6 Months</option>
+              <option value="1yearly">Every Year</option>
+              <option value="2yearly">Every 2 Years</option>
+              <option value="3yearly">Every 3 Years</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <h2 id="message"></h2>
+        </div>
+
+        <button type="submit" id="edit-sub" data-id="{{example.id}}" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/editsub.js"></script>
