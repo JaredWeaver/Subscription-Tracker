@@ -15,10 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
   }).then((result) => {
     console.log(result);
     userSubs = [];
+
+    //Michel: adding total line at the end of the subs table
+    var totalSub=0;
+
     for (var i = 0; i < result.length; i++) {
       console.log(result[i].name);
 
       var HTMLIcon = '';
+
+      //Michel: adding the total amount
+      totalSub += result[i].amount;
 
       //Michel: adding the icon in the userTable
       let myIcon;
@@ -72,6 +79,21 @@ document.addEventListener('DOMContentLoaded', function () {
       $('#userSubTable').append(tableRow);
    
     }
+
+    //Michel: rendering the total Subs amout
+    if (totalSub > 0){
+      let tableTotal=`
+      <tr>
+      <td></td>
+      <td><span style='font-weight: 900;'>Total</span></td>
+      <td><span style='font-weight: 900;'>\$${totalSub}</span></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>`
+      $('#userSubTable').append(tableTotal);
+    };
+
     userSubs = result.map(subscription => {
       return {
         title : subscription.name,
