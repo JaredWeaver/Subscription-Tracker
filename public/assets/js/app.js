@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <td>${result[i].name}</td>
       <td>\$${result[i].amount}</td>
       <td>${result[i].newDue}</td>
-      <td>${result[i].renew}</td>
+      <td>${renew(result[i].renew)}</td>
       <td class="justify-content-center ml-4">
         <a href="#" class="mr-2"><i class="mr-auto fas fa-pencil-alt" data-id="${result[i].id}"></i></a>
         <a href="#"><i class="mr-auto fas fa-trash" data-id="${result[i].id}"></i></a>
@@ -179,6 +179,41 @@ document.addEventListener('DOMContentLoaded', function () {
     calendar.render();
   });
 });
+
+// Duy: Returns a cleaner recurring name for sub table
+const renew = (recurring) => {
+  var renew;
+  switch (recurring) {
+      case '1weekly':
+        renew = '1 Week';
+        break;
+      case '2weekly':
+        renew = '2 Weeks';
+        break;
+      case '1monthly':
+        renew = '1 Month';
+        break;
+      case '2monthly':
+        renew = '2 Months';
+        break;
+      case '3monthly':
+        renew = '3 Months';
+        break;
+      case '6monthly':
+        renew = '6 Months';
+        break;
+      case '1yearly':
+        renew = '1 Year';
+        break;
+      case '2yearly':
+        renew = '2 Years';
+        break;
+      case '3yearly':
+        renew = '3 Years';
+        break;
+  }
+  return renew;
+}
 
 //Jared- Need to add click event for the > arrow on the calendar. When clicked, increment the date + 1 to change the table to match the month shown
 $('.buttonIcon').on('click', function(){
