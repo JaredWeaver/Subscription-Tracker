@@ -1,5 +1,48 @@
+<nav class="flex items-center justify-between flex-wrap bg-gray-800 w-full z-10 top-0 mb-3">
+  <div class="flex items-center flex-shrink-0 text-white mr-6">
+    <a class="navbar-brand" href="/"><span class="text-4xl logo text-yellow-600">Subscription Tracker</span>
+    </a>
+  </div>
 
-  <nav class="navbar navbar-expand-sm  md:justify-between flex-row bg-gray-900 p-4">
+  <div class="block lg:hidden">
+    <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded">
+      <p id="hamburger"> <i class="fa fa-bars text-3xl text-white pt-3"></i></p>
+    </button>
+  </div>
+
+  <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0 text-white text-lg" id="nav-content">
+    <ul class="list-reset lg:flex justify-start flex-1 items-center">
+      {{#if isloggedin}}
+      <li class="mr-3">
+        <a class="nav-link" href="/profile">My Profile</a>
+      </li>
+      <li class="mr-3">
+        <a class="nav-link" href="/newsub">Add Subscription</a>
+      </li>
+      <li class="mr-3">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+      {{else}}
+      <li class="mr-3">
+        <a class="nav-link login-modal" href="#">Login</a>
+      </li>
+      <li class="mr-3">
+        <a class="nav-link" href="/register" id="login-modal">Register</a>
+      </li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  document.getElementById('nav-toggle').onclick = () => {
+    document.getElementById("nav-content").classList.toggle("hidden");
+  }
+</script>
+
+  {{!-- Duy: Commented out old non-working navbar --}}
+  
+  {{!-- <nav class="navbar navbar-expand-sm  md:justify-between flex-row bg-gray-900 p-4">
     <div class="flex flex-row justify-between">
       <a class="navbar-brand" href="/"><span class="text-4xl logo text-yellow-600">Subscription Tracker</span>
       </a>
@@ -28,6 +71,6 @@
         {{/if}}
       </ul>
     </div>
-  </nav>
+  </nav> --}}
 
 {{> modal/login-block}}
