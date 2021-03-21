@@ -67,6 +67,11 @@ body {
   font-weight: 500;
 }
 
+.table {
+  max-width: 700px;
+}
+
+
 .userId h2, .header-wrap h1 {
   text-transform: capitalize;
 }
