@@ -5,9 +5,9 @@
   You are logged in as {{user.firstName}}
 
   <div
-    class="grid grid-rows-3 grid-cols-11 gap-x-10 border m-5 border-black border-solid shadow-md bg-gradient-to-r  from-gray-800 via-yellow-600 to-gray-800">
+    class="grid grid-cols-1 md:grid-cols-9 gap-x-10 border m-5 border-black border-solid shadow-md bg-gradient-to-r  from-gray-800 via-yellow-600 to-gray-800">
     <table
-      class="rounded-lg justify-center table row-span-3 col-span-4 border-collapse border bg-gray-900 border-white">
+      class="rounded-lg justify-center table md:col-span-4 border-collapse border sm:max-w-xl bg-gray-900 border-white">
       <thead class="text-yellow-600 text-lg">
         <tr>
           <th class="p-3"></th>
@@ -22,53 +22,57 @@
       </tbody>
     </table>
     <div id='calendar'
-      class="bg-gray-900 text-white col-span-7 border border-white sm:col-span-auto lg:row-span-2 md:flex-shrink-0"></div>
+      class="bg-gray-900 text-white border border-white md:col-span-5 sm:max-w-xl md:flex-shrink-0"></div>
   </div>
   {{else}}
-  <div class="grid pt-4 grid-rows-3 grid-flow-col bg-gray-800 gap-2">
-    <div class="row-span-3 col-span-3">
-      <img
-        src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi1.wp.com%2Ftechweez.com%2Fwp-content%2Fuploads%2F2020%2F01%2Fstreaming-services.jpg%3Ffit%3D1200%252C628%26ssl%3D1"
-        class="pl-2 rounded">
-    </div>
-    <div class="col-span-3 row-span-2 bg-yellow-600 border-gray-800 border-solid rounded p-4 pr-2 ml-3">
-      <p class="text-7xl text-gray-800 logo">New here?</p>
-      <p class="text-2xl">You need to <a href="/register" id="login"
-          class="animate-pulse text-gray-800 bold">register</a> a new account to start <br> managing your subscriptions.</p>
-    </div>
+  <div class="grid pt-4 pb-4  grid-cols-11 shadow-xl bg-gray-800 gap-2 md::grid-cols-1 flex-shrink-0"">
+    <div class=" row-span-3 col-span-7 shadow-lg">
+    <img
+      src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi1.wp.com%2Ftechweez.com%2Fwp-content%2Fuploads%2F2020%2F01%2Fstreaming-services.jpg%3Ffit%3D1200%252C628%26ssl%3D1"
+      class="pl-2 rounded w-1200 h-600">
   </div>
-  <div class="grid grid-rows-3 pt-2 gap-1 grid-flow-col">
-    <div class="col-span-3 row-span-2 p-4  border-gray-800 border-solid rounded">
-      <h1 class="text-center text-3xl logo text-yellow-600">
-        Testimonials
-      </h1>
-      <div class="rounded text-center p-3 pt-2  text-white">
-        <p class="text-l text-white italic">"Subscription Tracker has completely surpassed our expectations."
-- Abbe J.</p>
-      </div>
-      <div class="rounded text-center p-3 pt-2  text-white">
-        <p class="text-l text-white italic">"You've saved our business! It's really wonderful. This is simply unbelievable! Great job, I will definitely be ordering again!"
-- Zorana C.</p>
-      </div>
-      <div class="rounded text-center p-3 pt-2  text-white">
-        <p class="text-l text-white italic">"Subscription Tracker is worth much more than I paid."
-- Marthe E.</p>
-      </div>
-      <div class="rounded text-center p-3 pt-2  text-white">
-        <p class="text-l text-white italic">"I would like to personally thank you for your outstanding product. I have gotten at least 50 times the value from Subscription Tracker. Best. Product. Ever! Subscription Tracker is great."
-- Lynett.</p>
-      </div>
-
+  <div
+    class="col-span-4 row-span-2 shadow-lg items-center bg-yellow-600 border-gray-800 border-solid rounded p-4 pr-2 ml-4 mr-4">
+    <p class="text-7xl text-gray-800 logo">New here?</p>
+    <p class="text-2xl">You need to <a href="/register" id="login" class="animate-pulse text-gray-800 bold">register</a>
+      a new account to <br> start managing your subscriptions.</p>
+  </div>
+</div>
+<div class="grid grid-rows-3 pt-2 gap-1 grid-col-4 sm:col-span-1">
+  <div class="col-span-3 row-span-2 p-4  border-gray-800 border-solid rounded">
+    <h1 class="text-center text-3xl logo text-yellow-600">
+      Testimonials
+    </h1>
+    <div class="rounded text-center p-3 pt-2  text-white">
+      <p class="text-l text-white italic">"Subscription Tracker has completely surpassed our expectations."
+        - Abbe J.</p>
+    </div>
+    <div class="rounded text-center p-3 pt-2  text-white">
+      <p class="text-l text-white italic">"You've saved our business! It's really wonderful. This is simply
+        unbelievable! Great job, I will definitely be ordering again!"
+        - Zorana C.</p>
+    </div>
+    <div class="rounded text-center p-3 pt-2  text-white">
+      <p class="text-l text-white italic">"Subscription Tracker is worth much more than I paid."
+        - Marthe E.</p>
+    </div>
+    <div class="rounded text-center p-3 pt-2  text-white">
+      <p class="text-l text-white italic">"I would like to personally thank you for your outstanding product. I have
+        gotten at least 50 times the value from Subscription Tracker. Best. Product. Ever! Subscription Tracker is
+        great."
+        - Lynett.</p>
     </div>
 
-
-
   </div>
-  {{/if}}
-  <h5 id="login-err-msg"></h5>
+
+
+
+</div>
+{{/if}}
+<h5 id="login-err-msg"></h5>
 
 
 
 
-  {{> modal/login-block}}
-  {{> modal/editsub-block}}
+{{> modal/login-block}}
+{{> modal/editsub-block}}
