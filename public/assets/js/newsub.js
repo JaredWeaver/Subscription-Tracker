@@ -46,8 +46,6 @@ $("#inputSub").change(function(){
 
 $('#add-sub').on('click', function (event) {
 
-  
-  
   event.preventDefault();
 
   const newSub = {
@@ -67,7 +65,6 @@ $('#add-sub').on('click', function (event) {
       data: newSub
     });
     $('#create-err-msg').empty('');
-    // $('#create-form').empty('');
     window.location.href = '/';
   } else {
     console.log('**Please fill out entire form**');

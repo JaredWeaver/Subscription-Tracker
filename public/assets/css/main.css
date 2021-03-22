@@ -59,9 +59,7 @@
     border: 1px solid #ddd;
     border: 1px solid var(--fc-border-color, #ddd);
   }
-/* for FF, which doesn't expand a 100% div within a table cell. use absolute positioning */
-/* inner-wrappers are responsible for being absolute */
-/* TODO: best place for this? */
+
 .fc-liquid-hack td,
   .fc-liquid-hack th {
     position: relative;
@@ -1027,9 +1025,7 @@ A VERTICAL event
     }
 
 .fc-v-event {
-
   /* resizer for TOUCH (when event is "selected") */
-
 }
 
 .fc-v-event.fc-event-selected .fc-event-resizer {
@@ -1098,11 +1094,8 @@ A VERTICAL event
     padding: 0 4px;
   }
 .fc {
-
-
   /* axis cells (top-left corner of view including the "all-day" text) */
   /* vertical align is more complicated, uses flexbox */
-
 }
 .fc .fc-timegrid-axis-frame-liquid {
     height: 100%; /* will need liquid-hack in FF */
@@ -1322,10 +1315,7 @@ A VERTICAL event
     margin: 5em 0;
   }
 .fc {
-
   /* table within the scroller */
-  /* ---------------------------------------------------------------------------------------------------- */
-
 }
 .fc .fc-list-table {
     width: 100%;
@@ -1350,11 +1340,7 @@ A VERTICAL event
     padding: 8px 14px;
   }
 .fc {
-
-
   /* date heading rows */
-  /* ---------------------------------------------------------------------------------------------------- */
-
 }
 .fc .fc-list-day-cushion:after {
   content: "";
@@ -1384,9 +1370,7 @@ A VERTICAL event
     background-color: var(--fc-list-event-hover-bg-color, #f5f5f5);
   }
 .fc {
-
   /* shrink certain cols */
-
 }
 .fc .fc-list-event-graphic,
   .fc .fc-list-event-time {
@@ -1426,4 +1410,3 @@ A VERTICAL event
   .fc-theme-bootstrap a:not([href]) {
     color: inherit; /* natural color for navlinks */
   }
-
