@@ -122,58 +122,6 @@ document.addEventListener('DOMContentLoaded', function () {
       editable: true,
       selectable: true,
       events: userSubs
-      // [
-      // {
-      //   title: 'Netflix',
-      //   start: '2021-03-20',
-      //   constraint: '13.99'
-      // },
-      // {
-      //   title: 'Meeting',
-      //   start: '2020-09-13T11:00:00',
-      //   constraint: 'availableForMeeting', // defined below
-      //   color: '#257e4a'
-      // },
-      // {
-      //   title: 'Conference',
-      //   start: '2020-09-18',
-      //   end: '2020-09-20'
-      // },
-      // {
-      //   title: 'Party',
-      //   start: '2020-09-29T20:00:00'
-      // },
-
-      // // areas where "Meeting" must be dropped
-      // {
-      //   groupId: 'availableForMeeting',
-      //   start: '2020-09-11T10:00:00',
-      //   end: '2020-09-11T16:00:00',
-      //   display: 'background'
-      // },
-      // {
-      //   groupId: 'availableForMeeting',
-      //   start: '2020-09-13T10:00:00',
-      //   end: '2020-09-13T16:00:00',
-      //   display: 'background'
-      // },
-
-      // // red areas where no events can be dropped
-      // {
-      //   start: '2020-09-24',
-      //   end: '2020-09-28',
-      //   overlap: false,
-      //   display: 'background',
-      //   color: '#ff9f89'
-      // },
-      // {
-      //   start: '2020-09-06',
-      //   end: '2020-09-08',
-      //   overlap: false,
-      //   display: 'background',
-      //   color: '#ff9f89'
-      // }
-      // ]
     });
     console.log('cal open');
     calendar.render();
@@ -274,7 +222,6 @@ $('#update-user').on('click', function (event) {
     password: $('#inputPassword').val().trim()
   };
   $('#err-msg').empty('');
-  // $('#change-user-modal').modal('show');
   console.log(changeUser);
 
   if (
@@ -379,7 +326,6 @@ $('#edit-sub').on('click', function (event) {
       data: editSub
     });
     $('#create-err-msg').empty('');
-    // $('#create-form').empty('');
     window.location.href = '/';
   } else {
     console.log('**Please fill out entire form**');
@@ -413,7 +359,6 @@ $('#login').on('click', function (event) {
   };
 
   $.post('/api/login', user, (result) => {
-    // console.log(result);
     if (result.loggedIn) {
       $(document.location).attr('href', '/dashboard');
     } else {

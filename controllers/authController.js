@@ -49,7 +49,6 @@ module.exports = (passport, db) => {
       });
     },
     updateUser: (req, res) => {
-      // console.log('req.body:', req.body);
       db.User.update({
         email: req.body.email,
         firstName: req.body.firstName,
@@ -58,7 +57,6 @@ module.exports = (passport, db) => {
       }, {
         where: { id: req.params.id }
       }).then(result => {
-        // console.log(result);
         res.json(result);
       });
     },

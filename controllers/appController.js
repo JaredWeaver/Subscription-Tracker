@@ -44,7 +44,6 @@ module.exports = function (db) {
         order: [['due', 'ASC']]
       }).then
             (function (dbExamples) {
-              // console.log(dbExamples);
               dbExamples = dbExamples.map(Subscription => {
                 console.log('due',Subscription.dataValues.due)
                 Subscription.dataValues.newDue = moment(Subscription.dataValues.due).format('l');
@@ -52,8 +51,6 @@ module.exports = function (db) {
                 return Subscription
 
               });
-              // console.log(dbExamples)
-
         res.json(dbExamples);
       });
     }

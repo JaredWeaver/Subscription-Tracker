@@ -39,38 +39,4 @@
     document.getElementById("nav-content").classList.toggle("hidden");
   }
 </script>
-
-  {{!-- Duy: Commented out old non-working navbar --}}
-  
-  {{!-- <nav class="navbar navbar-expand-sm  md:justify-between flex-row bg-gray-900 p-4">
-    <div class="flex flex-row justify-between">
-      <a class="navbar-brand" href="/"><span class="text-4xl logo text-yellow-600">Subscription Tracker</span>
-      </a>
-
-      <p id="hamburger" class="md:hidden"> <i class="fa fa-bars text-3xl text-white pt-3"></i></p>
-
-      <ul class="text-white text-lg hidden md:flex md:flex-row pt-1" id="mobileView">
-        {{#if isloggedin}}
-       
-        <li class="nav-item">
-          <a class="nav-link" href="/profile">My Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/newsub">Add Subscription</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
-        </li>
-        {{else}}
-        <li class="nav-item">
-          <a class="nav-link login-modal" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/register" id="login-modal">Register</a>
-        </li>
-        {{/if}}
-      </ul>
-    </div>
-  </nav> --}}
-
 {{> modal/login-block}}
