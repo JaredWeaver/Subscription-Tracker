@@ -41,7 +41,6 @@ module.exports = (db) => {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated()
         };
-        // console.log(user);
         res.render('profile', user);
       });
     } else {
