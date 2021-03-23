@@ -5,23 +5,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var today = new Date();
 
-  let oneSub = {};
-  var frequencyNum;
-  var frequencyName;
-
   $.ajax({
     method: 'GET',
     url: '/api/subs'
   }).then((result) => {
-    console.log(result);
     userSubs = [];
 
     //Michel: adding total line at the end of the subs table
     var totalSub=0;
 
     for (var i = 0; i < result.length; i++) {
-      console.log(result[i].name);
-
       var HTMLIcon = '';
 
       //Michel: adding the total amount
@@ -86,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <tr>
       <td></td>
       <td><span style='font-weight: 900;'>Total</span></td>
-      <td><span style='font-weight: 900;'>\$${totalSub}</span></td>
+      <td><span style='font-weight: 900;'>\$${totalSub.toFixed(2)}</span></td>
       <td></td>
       <td></td>
       <td></td>
@@ -106,9 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
     });
-  
-    console.log('usersubs',userSubs);
-    // });
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
       headerToolbar: {
@@ -123,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
       selectable: true,
       events: userSubs
     });
-    console.log('cal open');
     calendar.render();
   });
 });
@@ -182,7 +171,6 @@ $('table').on('click', '.fa-trash', function (event) {
 
 $('#add-user').on('click', function (event) {
   event.preventDefault();
-  console.log(event);
   const newAccount = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
@@ -205,7 +193,6 @@ $('#add-user').on('click', function (event) {
       window.location.href = '/';
     });
   } else {
-    console.log('**Please fill out entire form**');
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
   }
 });
@@ -222,7 +209,6 @@ $('#update-user').on('click', function (event) {
     password: $('#inputPassword').val().trim()
   };
   $('#err-msg').empty('');
-  console.log(changeUser);
 
   if (
     changeUser.password.length > 0 &&
@@ -236,12 +222,10 @@ $('#update-user').on('click', function (event) {
       url: `/api/user/${id}`,
       data: changeUser
     }).then((result) => {
-      console.log('Updated user:', result);
       // Reload the page to get the updated list
       window.location.href = '/logout';
     });
   } else {
-    console.log('**Please fill out entire form**');
     $('#update-err-msg').empty('').text('**Please fill out entire form**');
   }
 });
@@ -273,7 +257,6 @@ $('#confirm-delete').on('click', function (event) {
         $.ajax(`/api/user/${id}`, {
           type: 'DELETE'
         }).then(() => {
-          console.log('Deleted user', deleteUser);
           // Reload the page to get the updated list
           window.location.href = '/logout';
         });
@@ -282,7 +265,6 @@ $('#confirm-delete').on('click', function (event) {
       }
     });
   } else {
-    console.log('fill out entire form');
     $('#err-msg').empty('').text('fill out entire form');
   }
 });
@@ -317,8 +299,6 @@ $('#edit-sub').on('click', function (event) {
     renew: $('#inputRenew').val(),
   };
 
-  console.log(editSub);
-
   if (editSub.name.length > 0 && editSub.amount.length > 0 && editSub.due.length > 0) {
     $.ajax({
       type: 'PUT',
@@ -328,7 +308,6 @@ $('#edit-sub').on('click', function (event) {
     $('#create-err-msg').empty('');
     window.location.href = '/';
   } else {
-    console.log('**Please fill out entire form**');
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
   }
 });

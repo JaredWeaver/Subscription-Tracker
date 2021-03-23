@@ -1,12 +1,6 @@
 const moment = require('moment');
 module.exports = function (db) {
   return {
-    // Get all examples
-    getExamples: function (req, res) {
-      db.Example.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbExamples) {
-        res.json(dbExamples);
-      });
-    },
     // Duy: Adds a subscription to the user's account
     createSub: function (req, res) {
       db.Subscription.create(req.body).then(function (dbExample) {
