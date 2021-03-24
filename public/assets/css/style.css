@@ -93,6 +93,10 @@ hr {
   height: 150px;
 }
 
+.yearly {
+  color: red;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
