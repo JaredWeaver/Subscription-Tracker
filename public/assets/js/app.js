@@ -13,12 +13,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Michel: adding total line at the end of the subs table
     var totalSub=0;
+    var yearlySub=0;
+    var subFrequency;
+    var subTimes;
 
     for (var i = 0; i < result.length; i++) {
       var HTMLIcon = '';
 
       //Michel: adding the total amount
       totalSub += result[i].amount;
+      subTimes=result[i].renew[0];
+      subFrequency=result[i].renew.substring(1);
+      switch (subFrequency) {
+        case 'weekly':
+          yearlySub += result[i].amount * (52/subTimes);
+          break;
+        case 'monthly':
+          yearlySub += result[i].amount * (12/subTimes);
+          break;
+        case 'yearly':
+          yearlySub += result[i].amount * (1/subTimes);
+          break;            
+        default:
+          break;
+      }
 
       //Michel: adding the icon in the userTable
       let myIcon;
@@ -70,7 +88,8 @@ document.addEventListener('DOMContentLoaded', function () {
       
       result[i]['color']=myColor;
       $('#userSubTable').append(tableRow);
-   
+      
+      console.log("The current date of the calendar is " , $('#calendar')[0]);
     }
 
     //Michel: rendering the total Subs amout
@@ -81,8 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
       <td><span style='font-weight: 900;'>Total</span></td>
       <td><span style='font-weight: 900;'>\$${totalSub.toFixed(2)}</span></td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td><span style='font-weight: 900;' class='yearly'>Yearly</span></td>
+      <td><span style='font-weight: 900;' class='yearly'>\$${yearlySub.toFixed(2)}</span></td>
       </tr>`
       $('#userSubTable').append(tableTotal);
     };
