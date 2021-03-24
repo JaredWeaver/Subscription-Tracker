@@ -1,6 +1,6 @@
 # Subscription-Tracker
 
-![GitHub Commits](https://github.com/JaredWeaver/Subscription-Tracker/graphs/contributors)
+[GitHub Commits](https://github.com/JaredWeaver/Subscription-Tracker/graphs/contributors)
 ![Code Size]()
 
 Subscription-Tracker is a website that allows you to track the various recurring subscriptions in your life. It allows you to input all your subscriptions, the frequency with which they occur, provides a calendar layout so you can see when the subscriptions occur, and lets you track how much the subscriptions cost.
@@ -13,23 +13,32 @@ To use the subscription tracker, you will need to go to the main landing page (l
 
 ## Screenshots
 
-<img src="public/assets/subscriptionTracker.gif" style = "width: 50%; height: auto">
-<img src="public/assets/landingPage.jpg" style = "width: 50%; height: auto">
+![video](./public/assets/images/subscriptionTracker.gif)
+![landing page](./public/assets/images/landingPage.jpg)
+![registration](./public/assets/images/registrationPage.jpg)
+![login](./public/assets/images/login.jpg)
+![profile](./public/assets/images/blankProfile.jpg)
+![profile](./public/assets/images/profile,jpg)
+![adding](./public/assets/images/addingSub.jpg)
+![no icon](./public/assets/images/unknownSub.jpg)
+![view](./public/assets/images/editsubscription.jpg)
+    <!-- <img src="public/assets/subscriptionTracker.gif" style = "width: 50%; height: auto"> -->
+<!-- <img src="public/assets/landingPage.jpg" style = "width: 50%; height: auto">
 <img src="public/assets/registrationPage.jpg" style = "width: 50%; height: auto">
 <img src="public/assets/login.jpg" style = "width: 50%; height: auto">
 <img src="public/assets/blankProfile.jpg" style = "width: 50%; height: auto">
 <img src="public/assets/profile.jpg" style = "width: 50%; height: auto">
 <img src="public/assets/addingSub.jpg" style = "width: 50%; height: auto">
 <img src="public/assets/unknownSub.jpg" style = "width: 50%; height: auto">
-<img src="public/assets/editSubscription.jpg" style = "width: 50%; height: auto">
+<img src="public/assets/editSubscription.jpg" style = "width: 50%; height: auto"> -->
 
 ## Contributors
 
--Jared Weaver
--Duy Nguyen
--Michel Nhouyvanisvong
--Stephen Wright
--Eric Ellis
+- Jared Weaver (https://github.com/JaredWeaver)   
+- Duy Nguyen (https://github.com/linosm)  
+- Michel Nhouyvanisvong (https://github.com/nhounhou)  
+- Stephen Wright (https://github.com/wrightsah)  
+- Eric Ellis (https://github.com/eellis4500  
 
 ## Credits
 
