@@ -1,7 +1,6 @@
 # Subscription-Tracker
 
 [GitHub Commits](https://github.com/JaredWeaver/Subscription-Tracker/graphs/contributors)
-![Code Size]()
 
 Subscription-Tracker is a website that allows you to track the various recurring subscriptions in your life. It allows you to input all your subscriptions, the frequency with which they occur, provides a calendar layout so you can see when the subscriptions occur, and lets you track how much the subscriptions cost.
 
