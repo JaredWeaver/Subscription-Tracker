@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const compression = require('compression');
 const exphbs = require('express-handlebars');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3333;
 const app = express();
 const db = require('./models');
 
+app.use(compression());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
